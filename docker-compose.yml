@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: tereamsk.ru # меняем на имя проекта
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - VIRTUAL_HOST=tereamsk.ru # домен сайта
+      - LETSENCRYPT_HOST=tereamsk.ru # домен для SSL
+      - LETSENCRYPT_EMAIL=qwe@email.com
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
