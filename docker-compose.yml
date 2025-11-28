@@ -9,7 +9,7 @@ services:
       - NODE_ENV=production
       - VIRTUAL_HOST=tereamsk.ru # домен сайта
       - LETSENCRYPT_HOST=tereamsk.ru # домен для SSL
-      - LETSENCRYPT_EMAIL=qwe@email.com
+      - LETSENCRYPT_EMAIL=qwe@gmail.com
     networks:
       - web
     volumes:
