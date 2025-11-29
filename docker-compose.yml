@@ -7,9 +7,10 @@ services:
     restart: always
     environment:
       - NODE_ENV=production
-      - VIRTUAL_HOST=tereamsk.ru # домен сайта
-      - LETSENCRYPT_HOST=tereamsk.ru # домен для SSL
+      - VIRTUAL_HOST=tereamsk.ru, www.tereamsk.ru
+      - LETSENCRYPT_HOST=tereamsk.ru, www.tereamsk.ru
       - LETSENCRYPT_EMAIL=qwe@gmail.com
+      - REDIRECT_www.tereamsk.ru=tereamsk.ru
     networks:
       - web
     volumes:
