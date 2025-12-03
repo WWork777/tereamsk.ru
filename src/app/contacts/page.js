@@ -39,7 +39,7 @@ const Contacts = () => {
       <div className="social">
         <h3>Социальные сети</h3>
         <p>
-          Telegram: <Link href="https://t.me/+tXZ1x8yraKUzNWEy">@TereaMsk</Link>
+          Telegram: <Link href="https://t.me/Ilumastore2025">@TereaMsk</Link>
         </p>
         <p>
           Whatsapp:{" "}
