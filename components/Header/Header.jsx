@@ -68,6 +68,7 @@ export default function Header() {
         </Link>
         <div className="menu">
           <Link href="/products/iqos">Устройства</Link>
+          <Link href="/blog">Блог</Link>
           <Link href="/products/terea">Стики</Link>
           <Link href="/products/devices">Аксессуары</Link>
           <Link href="/products">Каталог</Link>
@@ -230,6 +231,7 @@ export default function Header() {
             >
               Устройства
             </Link>
+            <Link className='link-close' href='/blog'  onClick={(e) => handleLinkClick(e, '/blog')}>Блог</Link>
             <Link
               className="link-close"
               href="/portfolio"
