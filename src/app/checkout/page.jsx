@@ -755,6 +755,19 @@ ${formattedCart}
               </p>
             )}
 
+            <input
+              type="text"
+              name="telegram"
+              placeholder="Telegram username (необязательно)"
+              value={formData.telegram}
+              onChange={handleInputChange}
+            />
+            {errors.telegram && (
+              <p className="error" style={{ color: "red" }}>
+                {errors.telegram}
+              </p>
+            )}
+
             <PhoneInput
               country={"ru"}
               value={formData.phoneNumber}
