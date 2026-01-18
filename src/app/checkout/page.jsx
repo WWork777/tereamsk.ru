@@ -35,7 +35,7 @@ const CheckoutPage = () => {
   const hasBlock = cartItems.some((item) => item.type === "Блок");
 
   const onlyPacksAndBlocks = cartItems.every(
-    (item) => item.type === "Пачка" || item.type === "Блок"
+    (item) => item.type === "Пачка" || item.type === "Блок",
   );
 
   const [errors, setErrors] = useState({});
@@ -43,12 +43,12 @@ const CheckoutPage = () => {
   const scroolTo = (element) => {
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
+        behavior: "smooth",
+        block: "center",
       });
       element.focus();
     }
-  }
+  };
 
   const validateForm = () => {
     const newErrors = {};
@@ -56,35 +56,40 @@ const CheckoutPage = () => {
     let element;
 
     if (selectedMethod === "delivery") {
-
       if (!formData.streetAddress.trim()) {
-        element = document.querySelector(`[placeholder="Номер дома и название улицы"]`);
-        scroolTo(element)
+        element = document.querySelector(
+          `[placeholder="Номер дома и название улицы"]`,
+        );
+        scroolTo(element);
         newErrors.streetAddress = "Введите адрес";
       }
 
       if (!formData.city.trim()) {
         element = document.querySelector(`[placeholder="Город"]`);
-        scroolTo(element)
+        scroolTo(element);
         newErrors.city = "Введите город";
       }
     }
 
     if (!formData.phoneNumber) {
-      element = document.querySelector(`[placeholder="Введите номер телефона"]`);
-      scroolTo(element)
+      element = document.querySelector(
+        `[placeholder="Введите номер телефона"]`,
+      );
+      scroolTo(element);
       newErrors.phoneNumber = "Введите номер телефона";
     } else if (formData.phoneNumber.replace(/\D/g, "").length < 11) {
-      element = document.querySelector(`[placeholder="Введите номер телефона"]`);
-      scroolTo(element)
+      element = document.querySelector(
+        `[placeholder="Введите номер телефона"]`,
+      );
+      scroolTo(element);
       newErrors.phoneNumber = "Некорректный номер телефона";
     }
 
     if (!formData.lastName.trim()) {
-      elements = document.getElementsByName('lastName');
+      elements = document.getElementsByName("lastName");
       if (elements.length > 0) {
         element = elements[0];
-        scroolTo(element)
+        scroolTo(element);
       }
       newErrors.lastName = "Введите имя";
     }
@@ -104,8 +109,7 @@ const CheckoutPage = () => {
     let isValid = true;
     if (name === "lastName") {
       isValid = /^[a-zA-Zа-яА-ЯёЁ0-9\s-]*$/.test(value);
-    }
-    else if (name === "city") {
+    } else if (name === "city") {
       isValid = /^[а-яА-ЯёЁ0-9\s-]*$/.test(value);
     } else if (name === "streetAddress") {
       isValid = /^[а-яА-ЯёЁ0-9\s-]*$/.test(value);
@@ -635,7 +639,7 @@ const CheckoutPage = () => {
           (item) =>
             `- ${item.name} (${item.type || "обычный"}) x${item.quantity}: ${
               item.price
-            } ₽`
+            } ₽`,
         )
         .join("\n");
 
@@ -663,7 +667,7 @@ ${formattedCart}
       } else if (
         selectedMethod === "delivery" &&
         moscowCities.some((city) =>
-          formData.city.trim().toLowerCase().includes(city)
+          formData.city.trim().toLowerCase().includes(city),
         )
       ) {
         mess = `Здравствуйте!\n\nПолучили ваш заказ с сайта ${site} ✅\n\nЗаказы отправляем через Яндекс или Достависту, предварительно согласовав с вами стоимость доставки. Оплата за заказ - переводом на карту.\n\nМожем отправить в любое удобное для Вас время.\n\n❗️Первый заказ можно оплатить при получении курьеру Достависты (в пределах МКАД)\n\nКогда Вам было бы удобно принять заказ? 😊\n\nКорзина:\n${formattedCart} \n\nАдрес \n\nГород: ${formData.city}\nАдрес: ${formData.streetAddress}`;
@@ -705,13 +709,13 @@ ${formattedCart}
               chatId: `${formData.phoneNumber}@c.us`,
               message: mess,
             }),
-          }
+          },
         );
 
         if (response.ok) {
           console.log("Сообщение успешно отправлено в Telegram и WhatsApp!");
           alert(
-            "Ваш заказ был отправлен!\nВ ближайшее время с вами свяжется наш менеджер."
+            "Ваш заказ был отправлен!\nВ ближайшее время с вами свяжется наш менеджер.",
           );
           window.location.href = "/";
           clearCart();
@@ -737,7 +741,9 @@ ${formattedCart}
       <div className="checkout-form">
         <div className="plitka">
           <h1>Оформление заказа</h1>
-          <h5>ВАЖНО! Укажите Ваш номер в WhatsApp или Telegram ник для связи</h5>
+          <h5>
+            ВАЖНО! Укажите Ваш номер в WhatsApp или Telegram ник для связи
+          </h5>
         </div>
         <form onSubmit={handleSubmit} ref={formRef}>
           <div className="checkout-name">
@@ -942,7 +948,14 @@ ${formattedCart}
                 </p>
               )}
             </div>
-            <button onClick={handleExternalSubmit} disabled={loading}>
+            <button
+              onClick={handleExternalSubmit}
+              disabled={
+                loading ||
+                selectedMethod === "pickup" ||
+                (onlyPacksAndBlocks && totalQuantity < 10 && !hasBlock)
+              }
+            >
               {loading ? "Загрузка..." : "Заказать"}
             </button>
           </div>
