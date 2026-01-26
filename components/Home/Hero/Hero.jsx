@@ -16,11 +16,11 @@ export default function Hero() {
       <div className="hero-container">
         <div className="hero-seo">
           <h1 className="hero-title">
-            Официальный магазин IQOS Iluma и стиков Terea
+            IQOS Iluma в Москве | Официальный магазин Terea
           </h1>
           <p className="hero-subtitle">
-            Оригинальные устройства и стики Terea с доставкой по Москве и всей
-            России.
+            Продажа оригинальных устройств и стиков по Москве с доставкой по
+            всей РФ.
           </p>
         </div>
 

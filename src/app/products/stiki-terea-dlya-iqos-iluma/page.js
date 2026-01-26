@@ -10,17 +10,17 @@ async function fetchItems() {
 }
 
 export async function generateMetadata() {
-  const title = "Купить стики Terea в TereaMsk с доставкой по Москве";
+  const title = "Стики TEREA в Москве";
   return {
     title,
     description:
-      "Купить стики Terea с доставкой. Лучший выбор вкусов и брендов!",
+      "Купить стики TEREA в Москве. В наличии, оригинал, удобный заказ.",
     alternates: {
       canonical: `https://tereamsk.ru/products/stiki-terea-dlya-iqos-iluma`,
     },
     openGraph: {
-      title: `Купить стики Terea в TereaMsk с доставкой по Москве`,
-      description: `Купить стики Terea с доставкой. Лучший выбор вкусов и брендов!`,
+      title: `Стики TEREA в Москве`,
+      description: `Купить стики TEREA в Москве. В наличии, оригинал, удобный заказ.`,
       url: `https://tereamsk.ru/products/stiki-terea-dlya-iqos-iluma`,
       images: [
         {
