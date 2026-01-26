@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 import ClientFilters from "./client";
 
 async function fetchItems() {
-  const res = await fetch("https://tereamsk.ru/api/products/getterea", {
+  const res = await fetch("https://iluma-store.ru/api/products/getterea", {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Ошибка загрузки товаров");
