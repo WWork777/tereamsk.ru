@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 import ClientFilters from "./client";
 
 async function fetchItems() {
-  const res = await fetch("https://iluma-store.ru/api/products/getdevices", {
+  const res = await fetch("https://tereamsk.ru/api/products/getdevices", {
     cache: "no-store",
   });
   if (!res.ok) throw new Error("Ошибка загрузки товаров");
@@ -17,12 +17,12 @@ export async function generateMetadata() {
     description:
       "Каталог аксессуаров для устройств IQOS ILUMA с доставкой по Москве. Лучший выбор вкусов и брендов!",
     alternates: {
-      canonical: `https://tereamsk.ru/products/devices`,
+      canonical: `https://tereamsk.ru/products/aksesuary-dlya-iqos-iluma`,
     },
     openGraph: {
       title: `Купить аксессуары для IQOS ILUMA в TereaMsk с доставкой по Москве`,
       description: `Каталог аксессуаров для устройств IQOS ILUMA с доставкой по Москве. Лучший выбор вкусов и брендов!`,
-      url: `https://tereamsk.ru/products/devices`,
+      url: `https://tereamsk.ru/products/aksesuary-dlya-iqos-iluma`,
       images: [
         {
           url: `/favicon/web-app-manifest-512x512`,
@@ -44,8 +44,8 @@ export default async function Page() {
 
   return (
     <div className="products-container">
-      <h1 style={{ position: "absolute", zIndex: "-9999" }}>
-        Аксессуары Iluma
+      <h1 className="page-title">
+        Аксессуары для IQOS ILUMA в Москве и России
       </h1>
       <ClientFilters items={items} />
     </div>
