@@ -8,6 +8,8 @@ import New from "../../components/Home/New/New";
 import Exclusive from "../../components/Home/Exclusive/Exclusive";
 import Reviews from "../../components/Home/Reviews/Reviews";
 import ModalManager from "../../components/ModalManager/ModalManager";
+import FAQ from "../../components/Home/FAQ/faq";
+import SEOText from "../../components/Home/Seotext/seotext";
 
 export const metadata = {
   title: "TEREA в Москве — купить стики",
@@ -82,6 +84,13 @@ export default function Home() {
 
         <section>
           <About />
+        </section>
+
+        <section>
+          <FAQ />
+        </section>
+        <section>
+          <SEOText />
         </section>
 
         <section>
