@@ -12,14 +12,14 @@ import FAQ from "../../components/Home/FAQ/faq";
 import SEOText from "../../components/Home/Seotext/seotext";
 
 export const metadata = {
-  title: "TEREA в Москве — купить стики",
+  title: "TEREA Москва — купить стики",
   description:
     "Стики TEREA в Москве для IQOS ILUMA. Оригинальная продукция, быстрая доставка.",
   alternates: {
     canonical: "https://tereamsk.ru",
   },
   openGraph: {
-    title: "TEREA в Москве — купить стики",
+    title: "TEREA Москва — купить стики",
     description:
       "Стики TEREA в Москве для IQOS ILUMA. Оригинальная продукция, быстрая доставка.",
     url: "https://tereamsk.ru",
@@ -35,7 +35,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TEREA в Москве — купить стики",
+    title: "TEREA Москва — купить стики",
     description:
       "Стики TEREA в Москве для IQOS ILUMA. Оригинальная продукция, быстрая доставка.",
     images: ["https://tereamsk.ru/favicon/og-image.png"],
