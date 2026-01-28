@@ -39,7 +39,7 @@ export default function Footer() {
               <p>
                 Пн-пт: с 12:00 до 20:00
                 <br />
-                Сб-вс: с 12.00-21.00
+                Сб-вс: с 12.00-20.00
               </p>
             </div>
             <div className="links-contacts">
