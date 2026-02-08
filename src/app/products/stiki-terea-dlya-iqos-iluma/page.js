@@ -27,8 +27,8 @@ async function fetchItems() {
   // Для tereamsk.ru порт 3007
   const baseUrl =
     process.env.NODE_ENV === "production" && typeof window === "undefined"
-      ? "http://localhost:3007"
-      : "";
+       ? "https://iluma-store.ru"
+       : "http://localhost:3000";
 
   try {
     return await safeFetch(`${baseUrl}/api/products/getterea`, {
