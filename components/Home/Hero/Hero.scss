@@ -1,0 +1,502 @@
+@import "/public/const.scss";
+
+// ========== Анимации ==========
+@keyframes hero {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide1 {
+  0%,
+  20% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide2 {
+  0%,
+  30% {
+    transform: translateX(800vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes imagehero {
+  0%,
+  20% {
+    transform: translateX(200%);
+  }
+  90% {
+    transform: translateX(-1%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// ========== Основные стили ==========
+.hero-container {
+  position: relative;
+  animation: hero 1s ease;
+}
+
+// ========== SEO секция ==========
+.hero-seo {
+  max-width: 100%;
+  text-align: center;
+  margin-top: 150px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 100px;
+  }
+}
+
+.hero-title {
+  font-size: clamp(13px, 3vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  color: white;
+  animation: hero 0.8s ease;
+}
+
+.hero-subtitle {
+  font-size: clamp(12px, 1vw, 20px);
+  line-height: 1.5;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 40px;
+  animation: hero 1s ease;
+}
+
+// ========== Слайдер ==========
+.hero {
+  padding: 4vh 0 35px !important;
+  overflow: hidden;
+  width: 70%;
+
+  // Общие стили слайдов
+  .swiper-slide {
+    position: relative;
+    border-radius: 20px;
+    height: 32vh;
+    min-height: 290px;
+    padding: 40px;
+    overflow: hidden;
+
+    // Карточка внутри слайда
+    .services-card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      justify-content: start;
+      color: white;
+
+      p {
+        font-weight: 600;
+        font-size: 32px;
+        margin-bottom: 5px;
+        line-height: 120%;
+        width: 50%;
+      }
+
+      span {
+        font-size: 18px;
+        width: 50%;
+      }
+
+      ul {
+        margin-top: 10px;
+      }
+
+      li {
+        font-size: 16px;
+
+        @media (max-width: 1000px) {
+          font-size: 14px;
+        }
+        @media (max-width: 400px) {
+          font-size: 12px;
+        }
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        align-items: start;
+        justify-content: end;
+        gap: 5px;
+
+        a {
+          padding: 8px 24px;
+          border-radius: 10px;
+          background: white;
+          color: black;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          svg {
+            height: 22px;
+            width: auto;
+            fill: black;
+          }
+
+          // Стиль для второй ссылки (Telegram)
+          &:last-child {
+            svg {
+              height: 30px;
+            }
+
+            div {
+              display: flex;
+              flex-direction: column;
+              gap: 0;
+              font-size: 14px;
+              font-weight: 400;
+              color: black;
+              margin-left: 10px;
+
+              span {
+                font-size: 16px;
+                color: black;
+                font-weight: 500;
+                width: fit-content;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Изображение внутри слайда
+    img {
+      position: absolute;
+      width: 30%;
+      height: auto;
+      right: 3%;
+      bottom: 10px;
+      animation: imagehero 2s ease-in-out;
+
+      @media (max-width: 1000px) {
+        width: 20%;
+      }
+    }
+  }
+
+  // Нечетные слайды (широкие)
+  .swiper-slide:nth-child(odd) {
+    width: calc(70% - 15px);
+    background: linear-gradient(30deg, #5871f3 0%, #5345ba 80%);
+    animation: slide1 1s ease;
+  }
+
+  // Третий слайд (специфические стили)
+  .swiper-slide:nth-child(3) {
+    img {
+      width: 47%;
+      top: -19%;
+      right: 3%;
+    }
+
+    span {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    a {
+      background: $header-full;
+      color: white;
+
+      svg {
+        height: 20px !important;
+      }
+    }
+  }
+
+  // Четные слайды (узкие)
+  .swiper-slide:nth-child(even) {
+    width: calc(30% - 15px);
+    background-color: #1d1c1c;
+    animation: slide1 1.5s ease;
+
+    .services-card {
+      p {
+        width: 100%;
+        font-size: 28px;
+      }
+
+      span {
+        width: 100%;
+      }
+
+      // Иконки в углах
+      .slide-icon {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        height: 50%;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(210deg, #5871f3 0%, #ff8a8c 100%);
+        background-size: 130%;
+        background-position: left top;
+        border-top-left-radius: 20%;
+        border-top-right-radius: 20%;
+
+        svg {
+          width: 70%;
+          height: auto;
+        }
+      }
+
+      .slide-icon2 {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+        height: 30%;
+        left: 40px;
+        bottom: 20%;
+        background: linear-gradient(210deg, #5871f3 0%, #ff8a8c 100%);
+        background-size: 150%;
+        background-position: right top;
+        border-radius: 20%;
+
+        svg {
+          width: 70%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+// ========== Навигация слайдера ==========
+.swiper-button-prev,
+.swiper-button-next {
+  width: 45px;
+  height: 45px;
+  border-radius: 40px;
+  background-color: hsla(174, 6%, 35%, 0.65);
+  border: none;
+  top: calc(50% + 5vh);
+}
+
+.swiper-button-prev {
+  left: 11%;
+  &:after {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.swiper-button-next {
+  right: 11%;
+  &:after {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+// ========== Адаптивность ==========
+
+// Мобильные устройства (до 992px)
+@media screen and (max-width: 992px) {
+  .hero {
+    padding-top: 1vh !important;
+    width: 94%;
+    overflow: visible;
+
+    .swiper-slide {
+      height: 38vh;
+      min-height: 290px;
+      max-height: 330px;
+      padding: 20px;
+
+      .services-card {
+        p {
+          font-size: 20px;
+          width: 100%;
+        }
+
+        span {
+          font-size: 12px;
+          width: 100%;
+        }
+
+        ul {
+          font-size: 11px;
+          padding-left: 20px;
+        }
+
+        div {
+          margin-top: 10px;
+
+          a {
+            padding: 5px 15px;
+            font-size: 12px;
+
+            svg {
+              height: 15px;
+            }
+
+            &:last-child {
+              svg {
+                height: 20px;
+              }
+
+              div {
+                margin: 0;
+                margin-left: 3px;
+              }
+            }
+          }
+        }
+      }
+
+      img {
+        width: 75%;
+        right: -10%;
+        bottom: 0;
+        z-index: -1;
+      }
+    }
+
+    .swiper-slide:nth-child(odd),
+    .swiper-slide:nth-child(even) {
+      width: 80%;
+    }
+
+    .swiper-slide:nth-child(even) {
+      .services-card {
+        .slide-icon {
+          height: 40%;
+        }
+
+        .slide-icon2 {
+          height: 23%;
+          left: 20px;
+        }
+      }
+    }
+
+    .swiper-slide:nth-child(3) {
+      img {
+        width: 74%;
+        top: auto;
+        bottom: 3px;
+        right: 3%;
+      }
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+}
+
+// Планшеты (992px - 1400px)
+@media screen and (max-width: 1400px) {
+  .hero {
+    width: 90%;
+
+    .swiper-slide {
+      min-height: 320px;
+
+      .services-card {
+        p {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+
+  .swiper-button-prev {
+    left: 1%;
+  }
+
+  .swiper-button-next {
+    right: 1%;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .hero {
+    .swiper-slide {
+      min-height: 300px;
+
+      .services-card {
+        p {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+
+  .hero .swiper-slide:nth-child(even) .services-card p {
+    font-size: 26px;
+  }
+}
+
+// Настольные компьютеры (1400px+)
+@media screen and (max-width: 1785px) {
+  .hero {
+    width: 80%;
+  }
+
+  .swiper-button-prev {
+    left: 5%;
+  }
+
+  .swiper-button-next {
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 1570px) {
+  .hero {
+    width: 90%;
+  }
+
+  .swiper-button-prev {
+    left: 1%;
+  }
+
+  .swiper-button-next {
+    right: 1%;
+  }
+}
+
+// Дополнительные медиа-запросы
+@media screen and (max-width: 768px) {
+  .hero-title {
+    font-size: 26px;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+}
