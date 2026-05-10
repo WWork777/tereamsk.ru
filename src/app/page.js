@@ -98,7 +98,7 @@ export default function Home() {
           <Reviews />
         </section>
       </main>
-      <BlockModal />
+      {/* <BlockModal /> */}
 
       {/* <ModalManager /> */}
     </>
